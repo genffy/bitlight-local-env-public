@@ -4,7 +4,7 @@ services:
     build:
       context: lnd
     environment:
-      - RPCHOST=10.200.10.5
+      - RPCHOST=10.200.10.205
       - RPCUSER=${RPC_USER}
       - RPCPASS=${RPC_PASSWORD}
       - NETWORK=regtest
@@ -18,7 +18,7 @@ services:
     build:
       context: wallet
     environment:
-      - RPCHOST=10.200.10.5
+      - RPCHOST=10.200.10.205
       - RPCUSER=${RPC_USER}
       - RPCPASS=${RPC_PASSWORD}
       - NETWORK=regtest

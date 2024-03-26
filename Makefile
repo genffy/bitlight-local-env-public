@@ -101,6 +101,10 @@ alice-cli:
 bob-cli:
 	$(DOCKER_COMPOSE) -p $(PROJECT_NAME) exec -it  wallet-bob /start-wallet.sh repl
 
+.PHONY: dave-cli
+dave-cli:
+	$(DOCKER_COMPOSE) -p $(PROJECT_NAME) exec -it  wallet-dave /start-wallet.sh repl
+
 wallet-%-cli:
 	echo "Starting wallet $* cli..."
 	$(DOCKER_COMPOSE) -p $(PROJECT_NAME) exec -it  wallet-$* /start-wallet.sh repl
