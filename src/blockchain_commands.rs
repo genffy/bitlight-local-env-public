@@ -9,7 +9,6 @@ pub struct Mint {
     blocks: u32,
 }
 
-
 pub fn mint(args: Mint) {
     let project_name = env::var("BITCOIN_COMPOSE_PROJECT_NAME")
         .expect("BITCOIN_COMPOSE_PROJECT_NAME environment variable is not set");
@@ -17,11 +16,17 @@ pub fn mint(args: Mint) {
     println!("Minting {} blocks", args.blocks);
 
     let mut child = Command::new("docker-compose")
-        .args(&[
-            "-p", &project_name,
-            "exec", "-it", "-w", "/cli",
-            "bitcoin-core", "/cli/active.sh", "mint",
-            &args.blocks.to_string()
+        .args([
+            "-p",
+            &project_name,
+            "exec",
+            "-it",
+            "-w",
+            "/cli",
+            "bitcoin-core",
+            "/cli/active.sh",
+            "mint",
+            &args.blocks.to_string(),
         ])
         .stdout(Stdio::piped())
         .spawn()
