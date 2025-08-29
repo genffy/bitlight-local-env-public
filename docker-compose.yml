@@ -43,6 +43,8 @@ services:
     volumes:
       - bitcoin-data:/data/.bitcoin
       - ./docker/bitcoin/cli:/cli
+    ports:
+      - "18443:18443"  # expose rpc port to host
     entrypoint: /bin/sh
     command:
       - -c
